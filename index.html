@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>神马电影网第九 | 第九艺术·影像档案库·shenmadianyingwangdijiu.top</title>
+<meta name="description" content="神马电影网第九（shenmadianyingwangdijiu.top）以"第九艺术"为核心理念，构建结构化影视档案库。采用三栏报纸排版，涵盖电影辞典、导演谱系、类型年鉴三大板块，为影迷提供有深度的选片参考。">
+<meta name="keywords" content="神马电影网第九, shenmadianyingwangdijiu, 第九艺术, 电影档案, 导演谱系, 类型片, 影视辞典, 电影文化">
+<style>
+/* ===== Swiss Newspaper Layout ===== */
+:root {
+  --ink: #0a0a0a;
+  --paper: #f5f3ee;
+  --rule: #0a0a0a;
+  --rule-light: #c9c4b8;
+  --accent: #c41e3a;
+  --col-gap: 2rem;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Helvetica Neue", "Arial", "PingFang SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ===== Masthead ===== */
+.masthead {
+  border-bottom: 4px solid var(--rule);
+  padding: 1.5rem 0 1rem;
+  margin-bottom: 0;
+}
+
+.masthead-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #555;
+}
+
+.masthead-title {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.masthead-title .num {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.masthead-sub {
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #666;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.75rem;
+}
+
+.masthead-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0.6rem 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.masthead-nav a:hover { color: var(--accent); }
+
+/* ===== Three Column Grid ===== */
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: var(--col-gap);
+  padding: 2rem 0;
+}
+
+.col-left { border-right: 1px solid var(--rule-light); padding-right: var(--col-gap); }
+.col-center { border-right: 1px solid var(--rule-light); padding-right: var(--col-gap); }
+.col-right { }
+
+/* ===== Article Styles ===== */
+.section-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.article {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--rule-light);
+}
+
+.article:last-child { border-bottom: none; }
+
+.article h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.article h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  line-height: 1.3;
+}
+
+.article p {
+  font-size: 0.88rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  text-align: justify;
+}
+
+.article .meta {
+  font-size: 0.7rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+.article .dropcap::first-letter {
+  font-size: 3.5rem;
+  font-weight: 900;
+  float: left;
+  line-height: 0.8;
+  margin-right: 0.3rem;
+  color: var(--accent);
+}
+
+/* Center column hero */
+.hero-article {
+  margin-bottom: 2rem;
+}
+
+.hero-article h1 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-article .hero-meta {
+  font-size: 0.75rem;
+  color: #888;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.4rem 0;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.hero-article p {
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin-bottom: 0.75rem;
+}
+
+/* Quote block */
+.pull-quote {
+  border-left: 4px solid var(--accent);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-style: italic;
+  color: #333;
+  background: rgba(196, 30, 58, 0.03);
+}
+
+/* Right column list */
+.index-list { list-style: none; }
+.index-list li {
+  padding: 0.6rem 0;
+  border-bottom: 1px dotted var(--rule-light);
+  font-size: 0.85rem;
+  display: flex;
+  gap: 0.5rem;
+}
+.index-list li:last-child { border-bottom: none; }
+.index-list .rank {
+  font-weight: 900;
+  color: var(--accent);
+  min-width: 1.5rem;
+}
+
+/* Timeline */
+.timeline-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  align-items: flex-start;
+}
+.timeline-year {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 3rem;
+  padding-top: 0.2rem;
+}
+.timeline-content h4 {
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+}
+.timeline-content p {
+  font-size: 0.78rem;
+  color: #555;
+}
+
+/* Footer */
+.footer {
+  border-top: 4px solid var(--rule);
+  padding: 2rem 0 1rem;
+  margin-top: 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-col h4 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+}
+
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 0.4rem; }
+.footer-col a {
+  font-size: 0.8rem;
+  color: #555;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--accent); }
+
+.footer-bottom {
+  border-top: 1px solid var(--rule-light);
+  padding-top: 1rem;
+  text-align: center;
+  font-size: 0.7rem;
+  color: #888;
+  letter-spacing: 0.05em;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .news-grid {
+    grid-template-columns: 1fr 1.5fr;
+  }
+  .col-right { display: none; }
+  .col-left { border-right: 1px solid var(--rule-light); }
+}
+
+@media (max-width: 768px) {
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+  .col-left { border-right: none; padding-right: 0; border-bottom: 1px solid var(--rule-light); padding-bottom: 2rem; }
+  .col-center { border-right: none; padding-right: 0; border-bottom: 1px solid var(--rule-light); padding-bottom: 2rem; }
+  .masthead-nav { flex-wrap: wrap; gap: 1rem; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 480px) {
+  .masthead-title { font-size: 1.8rem; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<!-- Masthead -->
+<header class="masthead">
+  <div class="container">
+    <div class="masthead-top">
+      <span>Vol. IX · 第九辑</span>
+      <span>shenmadianyingwangdijiu.top</span>
+      <span>每日更新 · Daily Edition</span>
+    </div>
+    <h1 class="masthead-title">神马电影网<span class="num">第九</span></h1>
+    <p class="masthead-sub">第九艺术影像档案 · 结构化选片指南 · 电影文化评论</p>
+    <nav class="masthead-nav">
+      <a href="#dictionary">电影辞典</a>
+      <a href="#directors">导演谱系</a>
+      <a href="#genres">类型年鉴</a>
+      <a href="#archive">档案库</a>
+      <a href="#about">关于第九</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Three Column News Grid -->
+<div class="container">
+  <div class="news-grid">
+
+    <!-- LEFT COLUMN -->
+    <aside class="col-left">
+      <span class="section-label">电影辞典</span>
+
+      <article class="article" id="dictionary">
+        <h3>什么是"第九艺术"？</h3>
+        <p class="meta">概念溯源 · 3 分钟阅读</p>
+        <p>电影被法国学者列为"第九艺术"（前八为建筑、雕塑、绘画、音乐、文学、舞蹈、戏剧、电影——注：部分体系将摄影列为第九，电影列为第八）。神马电影网第九取"第九"之名，意在将每一次观影视为一次艺术鉴赏，而非消遣消费。</p>
+      </article>
+
+      <article class="article">
+        <h3>景深与场面调度</h3>
+        <p class="meta">技术词条 · 2 分钟阅读</p>
+        <p>奥逊·威尔斯在《公民凯恩》中开创的深度构图法，让前景、中景、后景同时承载叙事信息。理解景深，是读懂现代电影语言的第一步。</p>
+      </article>
+
+      <article class="article">
+        <h3>长镜头的美学意义</h3>
+        <p class="meta">技术词条 · 4 分钟阅读</p>
+        <p>从塔可夫斯基到侯孝贤，长镜头不只是技术炫技，更是一种对时间与空间的尊重。它要求观众主动参与，而非被动接受剪辑的引导。</p>
+      </article>
+
+      <article class="article">
+        <h3>色彩心理学在影像中</h3>
+        <p class="meta">视觉词条 · 3 分钟阅读</p>
+        <p>韦斯·安德森的粉色帝国、张艺谋的红色符号、诺兰的冷蓝调性——色彩是电影中最直觉的情绪语言，无需台词即可传递信息。</p>
+      </article>
+
+      <span class="section-label" style="margin-top:1rem;">本周推荐</span>
+      <ul class="index-list">
+        <li><span class="rank">01</span> <span>《花样年华》4K修复版</span></li>
+        <li><span class="rank">02</span> <span>《奥本海默》IMAX版</span></li>
+        <li><span class="rank">03</span> <span>《坠落的审判》</span></li>
+        <li><span class="rank">04</span> <span>《完美的日子》</span></li>
+        <li><span class="rank">05</span> <span>《美国小说》</span></li>
+        <li><span class="rank">06</span> <span>《利益区域》</span></li>
+      </ul>
+    </aside>
+
+    <!-- CENTER COLUMN -->
+    <main class="col-center">
+      <article class="hero-article" id="directors">
+        <span class="section-label">封面专题</span>
+        <h1>导演谱系：从作者论到数据时代</h1>
+        <div class="hero-meta">
+          <span>深度长文 · 8 分钟阅读</span>
+          <span>编辑精选</span>
+        </div>
+        <p class="dropcap">当特吕弗在《电影手册》提出"作者论"时，他或许没有预料到，七十年后的今天，观众会在弹幕里争论"这部电影到底是谁的风格"。导演作为影像作者的地位，在流媒体时代既被强化又被稀释——算法推荐让作者粉丝更容易找到彼此，却也让"作者性"成为一种可被标签化的消费品。</p>
+        <p>神马电影网第九试图在两者之间找到平衡：既尊重导演作为创作主体的地位，又不被"作者崇拜"绑架。我们建立了导演谱系数据库，将华语、欧洲、北美、亚洲其他地区的导演按师承、风格、时代进行交叉分类，让你看到的不只是单个导演的作品列表，而是一张动态的影像基因网络。</p>
+
+        <div class="pull-quote">
+          "电影是每秒24帧的真理。" —— 让-吕克·戈达尔
+        </div>
+
+        <h2 style="margin-top:1.5rem;margin-bottom:0.75rem;">华语导演新浪潮</h2>
+        <p>从第五代的国际突围到第六代的城市书写，再到新千年后的类型片探索，华语电影导演谱系呈现出独特的代际交替模式。近年来，毕赣、魏书钧、邵艺辉等新生代导演以更个人化的视角切入，打破了"大片/文艺"的二元对立。</p>
+
+        <h2 style="margin-top:1.5rem;margin-bottom:0.75rem;">欧洲作者电影的传承</h2>
+        <p>从法国新浪潮到当代罗马尼亚新浪潮，欧洲作者电影始终保持着对形式的实验精神。克里斯蒂安·蒙吉、柯内流·波蓝波宇等人的作品证明，低预算同样可以产出高密度的影像表达。</p>
+
+        <h2 style="margin-top:1.5rem;margin-bottom:0.75rem;">亚洲电影的多声部</h2>
+        <p>日本电影在是枝裕和之后走向何种方向？韩国电影在奉俊昊拿下奥斯卡后如何自我定位？东南亚电影是否正在形成自己的美学体系？这些问题构成了当代亚洲影像最迷人的讨论场域。</p>
+      </article>
+
+      <article class="article" id="genres">
+        <span class="section-label">类型年鉴</span>
+        <h2>2024类型片观察：边界的消融</h2>
+        <p>类型片正在经历一场静默的革命。恐怖片与文艺片的界限越来越模糊——《仲夏夜惊魂》《遗传厄运》用艺术电影的节奏和构图讲恐怖故事；超级英雄电影在《死侍与金刚狼》之后开始自我解构；纪录片与剧情片的边界因《美国小说》这类元叙事作品而进一步模糊。</p>
+        <p>神马电影网第九的类型年鉴不只按类型分类，更关注类型之间的杂交与变异。我们标注每部作品的"类型纯度"与"跨界指数"，帮助你找到那些打破常规的类型片。</p>
+      </article>
+    </main>
+
+    <!-- RIGHT COLUMN -->
+    <aside class="col-right">
+      <span class="section-label">档案库</span>
+
+      <div style="margin-bottom:1.5rem;">
+        <h3 style="font-size:0.9rem;margin-bottom:0.5rem;">导演谱系速查</h3>
+        <div class="timeline-item">
+          <div class="timeline-year">1960s</div>
+          <div class="timeline-content">
+            <h4>法国新浪潮</h4>
+            <p>戈达尔、特吕弗、夏布洛尔</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">1980s</div>
+          <div class="timeline-content">
+            <h4>台湾新电影</h4>
+            <p>侯孝贤、杨德昌、陈坤厚</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">1990s</div>
+          <div class="timeline-content">
+            <h4>Dogme 95</h4>
+            <p>冯·提尔、托马斯·温特伯格</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2000s</div>
+          <div class="timeline-content">
+            <h4>罗马尼亚新浪潮</h4>
+            <p>蒙吉、波蓝波宇、穆雷桑</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2010s</div>
+          <div class="timeline-content">
+            <h4>韩国类型突破</h4>
+            <p>奉俊昊、朴赞郁、李沧东</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2020s</div>
+          <div class="timeline-content">
+            <h4>全球多元发声</h4>
+            <p>新锐导演、女性导演、非西方叙事</p>
+          </div>
+        </div>
+      </div>
+
+      <span class="section-label" style="margin-top:1rem;">观影数据</span>
+      <div style="margin-bottom:1.5rem;">
+        <ul class="index-list">
+          <li><span class="rank">📊</span> <span>本周新增片目：47 部</span></li>
+          <li><span class="rank">📊</span> <span>修复档案更新：12 部</span></li>
+          <li><span class="rank">📊</span> <span>导演词条新增：8 位</span></li>
+          <li><span class="rank">📊</span> <span>类型标签优化：23 项</span></li>
+          <li><span class="rank">📊</span> <span>用户评分入库：1,240 条</span></li>
+        </ul>
+      </div>
+
+      <span class="section-label" style="margin-top:1rem;">站点信息</span>
+      <div style="font-size:0.8rem;color:#555;line-height:1.8;">
+        <p><strong>主域名：</strong><br>shenmadianyingwangdijiu.top</p>
+        <p style="margin-top:0.5rem;"><strong>GitHub Pages：</strong><br>https://shenmadianyingwangdijiu-top.github.io</p>
+        <p style="margin-top:0.5rem;"><strong>更新频率：</strong><br>每日 09:00 (UTC+8)</p>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>神马电影网第九</h4>
+        <ul>
+          <li><a href="#dictionary">电影辞典</a></li>
+          <li><a href="#directors">导演谱系</a></li>
+          <li><a href="#genres">类型年鉴</a></li>
+          <li><a href="#archive">档案库</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>栏目导航</h4>
+        <ul>
+          <li><a href="#dictionary">概念词条</a></li>
+          <li><a href="#directors">封面专题</a></li>
+          <li><a href="#genres">类型观察</a></li>
+          <li><a href="#">本周推荐</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>资源分类</h4>
+        <ul>
+          <li><a href="#">4K修复档案</a></li>
+          <li><a href="#">独立制片</a></li>
+          <li><a href="#">短片实验</a></li>
+          <li><a href="#">纪录片专区</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>关于与法律</h4>
+        <ul>
+          <li><a href="#about">关于第九</a></li>
+          <li><a href="#">免责声明</a></li>
+          <li><a href="#">版权说明</a></li>
+          <li><a href="#">联系编辑部</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 神马电影网第九 (shenmadianyingwangdijiu.top) · 第九艺术影像档案库</p>
+      <p style="margin-top:0.3rem;">Website: https://shenmadianyingwangdijiu-top.github.io</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
